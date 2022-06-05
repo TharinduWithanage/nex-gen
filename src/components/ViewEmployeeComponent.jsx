@@ -25,16 +25,32 @@ class ViewEmployeeComponent extends Component {
                     <h3 className = "text-center"> View Employee Details</h3>
                     <div className = "card-body">
                         <div className = "row">
-                            <label> Employee First Name: </label>
-                            <div> { this.state.employee.firstName }</div>
+                            <label> Employee User Name: </label>
+                            <div> { this.state.employee.userName }</div>
                         </div>
                         <div className = "row">
-                            <label> Employee Last Name: </label>
-                            <div> { this.state.employee.lastName }</div>
+                            <label> Employee ID: </label>
+                            <div> { this.state.employee.eeID }</div>
                         </div>
                         <div className = "row">
-                            <label> Employee Email ID: </label>
-                            <div> { this.state.employee.emailId }</div>
+                            <label> Business Unit: </label>
+                            <div> { this.state.employee.BU }</div>
+                        </div>
+                        <div className = "row">
+                            <label> Contribution: </label>
+                            <div> { this.state.employee.contribution }</div>
+                        </div>
+                        <div className = "row">
+                            <label> Joining Date: </label>
+                            <div> { this.state.employee.joiningDate }</div>
+                        </div>
+                        <div className = "row">
+                            <label> Location: </label>
+                            <div> { this.state.employee.location }</div>
+                        </div>
+                        <div className = "row">
+                            <label> Financial Year: </label>
+                            <div> { this.state.employee.financialYear }</div>
                         </div>
                     </div>
 

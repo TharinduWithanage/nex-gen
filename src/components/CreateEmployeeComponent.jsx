@@ -13,14 +13,14 @@ class CreateEmployeeComponent extends Component {
             bu: '',
             contribution: '',
             joiningDate: '',
-            leavingDate: 'null',
+            leavingDate: '',
             location: '',
             financialYear: ''
         }
         this.changeUserNameHandler = this.changeUserNameHandler.bind(this);
         this.changeEEIDHandler = this.changeEEIDHandler.bind(this);
         this.changeBUHandler = this.changeBUHandler.bind(this);
-        this.changeContibutionHandler = this.changeContibutionHandler.bind(this);
+        this.changeContributionHandler = this.changeContributionHandler.bind(this);
         this.changeJoningDateHandler = this.changeJoningDateHandler.bind(this);
         this.changeLeavingDateHandler = this.changeLeavingDateHandler.bind(this);
         this.changeLocationHandler = this.changeLocationHandler.bind(this);
@@ -51,8 +51,7 @@ class CreateEmployeeComponent extends Component {
     }
     saveOrUpdateEmployee = (e) => {
         e.preventDefault();
-        let employee = {userName: this.state.userName, eeID: this.state.eeID, bu: this.state.bu, contribution: this.state.contribution, 
-            joiningDate: this.state.joiningDate, leavingDate: this.state, leaveDate: this.state.leavingDate, location: this.state.location, financialYear: this.state.financialYear};
+        let employee = {userName: this.state.userName, eeID: this.state.eeID, bu: this.state.bu, contribution: this.state.contribution, joiningDate: this.state.joiningDate, leavingDate: this.state.leavingDate, location: this.state.location, financialYear: this.state.financialYear};
         console.log('employee => ' + JSON.stringify(employee));
 
         // step 5
@@ -79,8 +78,8 @@ class CreateEmployeeComponent extends Component {
         this.setState({bu: event.target.value})
     }
 
-    changeContibutionHandler= (event) => {
-        this.setState({contibution: event.target.value})
+    changeContributionHandler= (event) => {
+        this.setState({contribution: event.target.value})
     }
 
     changeJoningDateHandler= (event) => {
@@ -107,7 +106,7 @@ class CreateEmployeeComponent extends Component {
         if(this.state.id === '_add'){
             return <h3 className="text-center">Add Employee</h3>
         }else{
-            return <h3 className="text-center">Update Employee</h3>
+            return <h3 className="text-center">Add Employee</h3>
         }
     }
     render() {
@@ -140,7 +139,7 @@ class CreateEmployeeComponent extends Component {
                                         <div className = "form-group">
                                             <label> Contribution: </label>
                                             <input placeholder="Contribution" name=" contribution" className="form-control" 
-                                                value={this.state.contribution} onChange={this.changeContibutionHandler}/>
+                                                value={this.state.contribution} onChange={this.changeContributionHandler}/>
                                         </div>
                                         <div className = "form-group">
                                             <label>Joining Date: </label>
@@ -149,7 +148,7 @@ class CreateEmployeeComponent extends Component {
                                         </div>
                                         <div className = "form-group">
                                             <label>Leaving Date: </label>
-                                            <input placeholder="DD/MM/YY" name="leavingDate" className="form-control" 
+                                            <input placeholder="DD/MM/YY" type='date' name="leavingDate" className="form-control" 
                                                 value={this.state.leavingDate} onChange={this.changeLeavingDateHandler}/>
                                         </div>
                                         <div className = "form-group">

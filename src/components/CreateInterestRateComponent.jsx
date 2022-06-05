@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import EmployeeService from '../services/EmployeeService';
 import InterestRateService from '../services/InterestRateService';
 
-class CreateInterestRateCompnent extends Component {
+class CreateInterestRateComponent extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
             // step 2
             id: this.props.match.params.id,            
-            financialYear: 'null',
+            financialYear: '',
             interestRate: ''
         }
         this.changeFinancialYearHandler = this.changeFinancialYearHandler(this);
@@ -44,18 +44,18 @@ class CreateInterestRateCompnent extends Component {
                 this.props.history.push('/employees');
             });
         }else{
-            InterestRateService.updateInterestDetails(this.state.financialYear, this.state.interestRate).then( res => {
+            InterestRateService.updateInterestDetails(interestDetails, this.state.id).then(res => {
                 this.props.history.push('/employees');
             });
         }
     }
     
     changeFinancialYearHandler= (event) => {
-        this.setState({financialYear: event.target.value})
+    //    this.setState({financialYear: event.target.value})
     }
 
     changeInterestRateHandler= (event) => {
-        this.setState({ interestRate:event.target.value})
+        // this.setState({ interestRate:event.target.value})
     }
 
     cancel(){
@@ -104,4 +104,4 @@ class CreateInterestRateCompnent extends Component {
     }
 }
 
-export default CreateInterestRateCompnent
+export default CreateInterestRateComponent

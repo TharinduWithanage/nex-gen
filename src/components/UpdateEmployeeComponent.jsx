@@ -12,7 +12,7 @@ class UpdateEmployeeComponent extends Component {
             BU: '',
             contribution: '',
             joiningDate: '',
-            leavingDate: 'null',
+            leavingDate: '',
             location: '',
             financialYear: ''
         }
@@ -44,8 +44,7 @@ class UpdateEmployeeComponent extends Component {
 
     updateEmployee = (e) => {
         e.preventDefault();
-        let employee = {userName: this.state.userName, eeID: this.state.eeID, bu: this.state.bu, contribution: this.state.contribution, 
-            joiningDate: this.state.joiningDate, leavingDate: this.state, leaveDate: this.state.leavingDate, location: this.state.location, financialYear: this.state.financialYear};
+        let employee = {userName: this.state.userName, eeID: this.state.eeID, bu: this.state.bu, contribution: this.state.contribution,joiningDate: this.state.joiningDate, leavingDate: this.state.leavingDate, location: this.state.location, financialYear: this.state.financialYear};
         console.log('employee => ' + JSON.stringify(employee));
         console.log('id => ' + JSON.stringify(this.state.id));
         EmployeeService.updateEmployee(employee, this.state.id).then( res => {

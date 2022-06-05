@@ -6,12 +6,13 @@ class ListEmployeeComponent extends Component {
         super(props)
 
         this.state = {
-                employees: []
+                employees: [{"id":":id","userName":"dilhani","eeID":"1234","bu":"SRG","contribution":"5000",
+                "joiningDate":"2022-06-05","leavingDate":"2024-06-11","location":"LK02","financialYear":"2022"}]
         }
-        this.addEmployee = this.addEmployee.bind(this);
+        
         this.editEmployee = this.editEmployee.bind(this);
         this.deleteEmployee = this.deleteEmployee.bind(this);
-        this.addRates = this.addRates.bind(this);
+       
     }
 
     deleteEmployee(id){
@@ -32,26 +33,12 @@ class ListEmployeeComponent extends Component {
         });
     }
 
-    addEmployee(){
-        this.props.history.push('/add-employee/_add');
-    }
-
-    addRates(){
-        this.props.history.push('/add-interest-details/_addRates');
-    }
+    
 
     render() {
         return (
             <div>
                  <h2 className="text-center">Employees List</h2>
-                 <div className = "row">
-                    <div className = "button">
-                        <button className="btn btn-primary" onClick={this.addEmployee}> Add Employee</button>
-                    </div>
-                    <div className = "button">
-                        <button className="btn btn-primary" onClick={this.addRates}> Add Rates</button>
-                    </div>
-                 </div>
                  <br></br>
                  <div className = "row">
                         <table className = "table table-striped table-bordered">
@@ -76,15 +63,16 @@ class ListEmployeeComponent extends Component {
                                     this.state.employees.map(
                                         employee => 
                                         <tr key = {employee.id}>
-                                             <td> { employee.financialYear} </td>   
+                                             <td> {employee.financialYear} </td>   
                                              <td> {employee.eeID}</td>
+                                             <td> {employee.userName}</td>
                                              <td> {employee.joiningDate}</td>
                                              <td> {employee.leaveDate}</td>
                                              <td> {employee.location}</td>
                                              <td> {employee.bu}</td>
-                                             <td> {employee.joiningDate}</td>
-                                             <td> {employee.joiningDate}</td> 
-                                             <td> {employee.joiningDate}</td>
+                                             <td> {"23000"}</td>
+                                             <td> {"800"}</td> 
+                                             <td> {"5000"}</td>
                                              <td>
                                                  <button onClick={ () => this.editEmployee(employee.id)} className="btn btn-info">Update </button>
                                                  <button style={{marginLeft: "10px"}} onClick={ () => this.deleteEmployee(employee.id)} className="btn btn-danger">Delete </button>

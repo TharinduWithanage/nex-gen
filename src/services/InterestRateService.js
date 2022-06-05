@@ -12,12 +12,12 @@ class InterestRateService {
         return axios.post(INTEREST_RATE_BASE_URL, interesrRateDetails);
     }
 
-    getInterestDetailsById(financialYear){
-        return axios.get(INTEREST_RATE_BASE_URL + '/' + financialYear);
+    getInterestDetailsById(interestId){
+        return axios.get(INTEREST_RATE_BASE_URL + '/' + interestId);
     }
 
-    updateInterestDetails(financialYear, interestRate){
-        return axios.put(INTEREST_RATE_BASE_URL + '/' + financialYear, interestRate);
+    updateInterestDetails(interestDetails, interestId){
+        return axios.put(INTEREST_RATE_BASE_URL + '/' + interestDetails, interestId);
     }
 
     // deleteEmployee(employeeId){

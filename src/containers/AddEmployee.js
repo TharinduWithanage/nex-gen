@@ -66,7 +66,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-export default function SideBar() {
+export default function AddEmployee() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -77,6 +77,8 @@ export default function SideBar() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -93,7 +95,7 @@ export default function SideBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Fund Management System
+            Fund Management System - Add Employee
           </Typography>
         </Toolbar>
       </AppBar>
@@ -116,7 +118,18 @@ export default function SideBar() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-          
+        <List>
+          {['Home', 'Add Employee', 'Delete Employee'].map((text, index) => (
+            <ListItem key={text} disablePadding>
+              <ListItemButton>
+                {/* <ListItemIcon>
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon> */}
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
         <Divider />
         <List>
           {['Report', 'Update', 'Info'].map((text, index) => (
@@ -133,6 +146,7 @@ export default function SideBar() {
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
+       
         <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non

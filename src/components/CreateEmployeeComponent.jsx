@@ -51,7 +51,7 @@ class CreateEmployeeComponent extends Component {
     }
     saveOrUpdateEmployee = (e) => {
         e.preventDefault();
-        let employee = {userName: this.state.userName, eeID: this.state.eeID, BU: this.state.BU, contribution: this.state.contribution, 
+        let employee = {userName: this.state.userName, eeID: this.state.eeID, bu: this.state.bu, contribution: this.state.contribution, 
             joiningDate: this.state.joiningDate, leavingDate: this.state, leaveDate: this.state.leavingDate, location: this.state.location, financialYear: this.state.financialYear};
         console.log('employee => ' + JSON.stringify(employee));
 
@@ -84,7 +84,7 @@ class CreateEmployeeComponent extends Component {
     }
 
     changeJoningDateHandler= (event) => {
-        this.setState({joningDate: event.target.value})
+        this.setState({joiningDate: event.target.value})
     }
 
     changeLeavingDateHandler= (event) => {
@@ -144,7 +144,7 @@ class CreateEmployeeComponent extends Component {
                                         </div>
                                         <div className = "form-group">
                                             <label>Joining Date: </label>
-                                            <input placeholder="DD/MM/YY" name="joiningDate" className="form-control" 
+                                            <input placeholder="DD/MM/YY" type="date" name="joiningDate" className="form-control" 
                                                 value={this.state.joiningDate} onChange={this.changeJoningDateHandler}/>
                                         </div>
                                         <div className = "form-group">

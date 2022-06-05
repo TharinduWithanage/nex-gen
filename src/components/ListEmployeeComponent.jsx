@@ -11,6 +11,7 @@ class ListEmployeeComponent extends Component {
         this.addEmployee = this.addEmployee.bind(this);
         this.editEmployee = this.editEmployee.bind(this);
         this.deleteEmployee = this.deleteEmployee.bind(this);
+        this.addRates = this.addRates.bind(this);
     }
 
     deleteEmployee(id){
@@ -35,12 +36,21 @@ class ListEmployeeComponent extends Component {
         this.props.history.push('/add-employee/_add');
     }
 
+    addRates(){
+        this.props.history.push('/add-interest-details/_addRates');
+    }
+
     render() {
         return (
             <div>
                  <h2 className="text-center">Employees List</h2>
                  <div className = "row">
-                    <button className="btn btn-primary" onClick={this.addEmployee}> Add Employee</button>
+                    <div className = "button">
+                        <button className="btn btn-primary" onClick={this.addEmployee}> Add Employee</button>
+                    </div>
+                    <div className = "button">
+                        <button className="btn btn-primary" onClick={this.addRates}> Add Rates</button>
+                    </div>
                  </div>
                  <br></br>
                  <div className = "row">
